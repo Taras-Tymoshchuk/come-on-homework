@@ -9,15 +9,15 @@ export const AllGamesPage = () => {
     name: "ALL",
     id: 0,
   });
-  const [search, setSearch] = useState("");
+  const [searchingFilter, setSearchingFilter] = useState("");
 
   return (
     <div className={s.mainTable}>
       <UserProfile />
       <div className={s.gamesTable}>
-        <GamesList search={search} activeFilter={activeFilter} />
+        <GamesList search={searchingFilter} activeFilter={activeFilter} />
         <CategoriesSelect
-          setSearch={setSearch}
+          setSearch={setSearchingFilter}
           setActiveFilter={setActiveFilter}
         />
       </div>

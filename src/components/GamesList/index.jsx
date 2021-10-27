@@ -30,20 +30,26 @@ const GamesList = ({ activeFilter, search, games, getGames }) => {
     <div className={s.gamesTable}>
       <h1>Games</h1>
       <hr />
-      {allGames.map((item) => {
-        return (
-          <div>
-            <div className={s.gamesCard} key={item.code}>
-              <img src={item.icon} alt={item.name} />
-              <div className={s.gamesCard_text}>
-                <h2>{item.name}</h2>
-                <p>{item.description}</p>
-                <Link to={`/games/${item.code}`}>PLAY</Link>
+      {!!allGames.length ? (
+        <>
+          {allGames.map((item) => {
+            return (
+              <div>
+                <div className={s.gamesCard} key={item.code}>
+                  <img src={item.icon} alt={item.name} />
+                  <div className={s.gamesCard_text}>
+                    <h2>{item.name}</h2>
+                    <p>{item.description}</p>
+                    <Link to={`/games/${item.code}`}>PLAY</Link>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        );
-      })}
+            );
+          })}
+        </>
+      ) : (
+        <h1>No games found</h1>
+      )}
     </div>
   );
 };

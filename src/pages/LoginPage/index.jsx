@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
+import axios from "../../utils/API";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import s from "./style.module.scss";
@@ -16,7 +16,7 @@ export const Login = () => {
 
   const onSubmit = async (values) => {
     try {
-      const res = await axios.post("http://localhost:3001/login", {
+      const res = await axios.post("/login", {
         ...values,
       });
       if (res.data.status === "success") {
